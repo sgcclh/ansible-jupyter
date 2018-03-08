@@ -15,10 +15,12 @@ RUN yum install -y \
 
 # Upgrade the pip to lastest.
 RUN pip install -U pip
-
+COPY requirements.txt /home
 # Setup the ansible.
 RUN pip install ansible
-
+RUN pip install -r /home/requirements.txt
+RUN pip install docker-py==1.10.6
+RUN pip install jq
 # for disable localhost warning message.
 RUN mkdir /etc/ansible && \
       /bin/echo -e "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
