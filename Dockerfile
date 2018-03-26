@@ -9,7 +9,7 @@ RUN yum update -y && \
 # Install the requires yum package and python.
 RUN yum install -y \
       kernel-headers gcc python python-pip python-devel \
-      libffi-devel openssl-devel git\
+      libffi-devel openssl-devel git ipmitool\
       && \
       yum clean all
 
